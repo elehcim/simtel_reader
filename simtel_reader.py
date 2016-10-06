@@ -41,9 +41,9 @@ class SimtelReader(object):
         print("Reading file", self.file_name)
         assert pyhessio.file_open(self.file_name) == 0
         cter = {k: v for (k, v) in zip(self.tel_id, np.zeros_like(self.tel_id))}
-        evt_counter = 1
+        evt_counter = 0
         for run_id, event_id in pyhessio.move_to_next_event(limit=self.limit):
-            if evt_counter == 1:  # only the first time
+            if evt_counter == 0:  # only the first time
                 print("Number of simulated telescopes: %i" % pyhessio.get_num_telescope())
             print("Run ID: %s, Event ID: %s" % (run_id, event_id))
             tel_ids = pyhessio.get_teldata_list()
