@@ -48,8 +48,8 @@ class SimtelReader(object):
             print("Run ID: %s, Event ID: %s" % (run_id, event_id))
             tel_ids = pyhessio.get_teldata_list()
             print("  Telescopes (%2i) for which we have data: %s" % (pyhessio.get_num_teldata(), tel_ids))
-            # print("  teltrg_list:                            %s" % (pyhessio.get_central_event_teltrg_list()))  # same as get_num_teldata
-            print("  teltrg_time (ns):                       %s" % (pyhessio.get_central_event_teltrg_time()))  # Comment if https://github.com/cta-observatory/pyhessio/pull/36 not merged 
+            print("  teltrg_list:                            %s" % (pyhessio.get_central_event_teltrg_list()))  # usually the same as get_num_teldata
+            print("  teltrg_time (ns):                       %s" % (pyhessio.get_central_event_teltrg_time()))
             
             evt_counter += 1
             if evt_counter % 100 == 0:  # Print only each 100 events
@@ -78,7 +78,7 @@ class SimtelReader(object):
 
             self.xcore.append(pyhessio.get_mc_event_xcore())
             self.teltrg_list.append(pyhessio.get_central_event_teltrg_list())
-            self.teltrg_time.append(pyhessio.get_central_event_teltrg_time())  # Comment if https://github.com/cta-observatory/pyhessio/pull/36 not merged 
+            self.teltrg_time.append(pyhessio.get_central_event_teltrg_time())
 
         print("")
         for t in self.tel_id:
