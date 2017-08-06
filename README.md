@@ -2,7 +2,7 @@
 
 Experiments on reading simtel files and printing trigger information
 
-##Usage:
+## Usage:
 
 ```
 $ python simtel_reader.py -h
@@ -16,7 +16,7 @@ optional arguments:
 
 ```
 
-##Example
+## Example
 
 ```
 $ python simtel_reader.py -f proton/run 10001.simtel.gz --tel 37 38 -l 4
